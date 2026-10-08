@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cabina Limpia</title>
+<meta name="description" content="Renta de baños portátiles para obras, eventos y bodas. Entrega, limpieza programada y retiro incluidos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,700..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#inicio" aria-label="Cabina Limpia, inicio">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Cabina Limpia</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#unidades">Unidades</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#servicio">Servicio</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn-signal btn-sm" href="#cotizar">Cotizar</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Renta de baños portátiles</p>
+        <h1>Baños portátiles limpios, a tiempo y sin complicaciones.</h1>
+        <p class="lede">Los llevamos, los mantenemos y los retiramos. Para obras, eventos, bodas y emergencias, con renta por día, semana o mes y limpieza incluida.</p>
+        <div class="hero-actions">
+          <a class="btn btn-signal" href="#cotizar">Pide tu cotización</a>
+          <a class="btn btn-ghost" href="#calculadora">¿Cuántos necesito?</a>
+        </div>
+        <ul class="hero-facts" aria-label="Lo que incluye cada renta">
+          <li><strong>Entrega en 24&nbsp;h</strong><span>en la zona metropolitana</span></li>
+          <li><strong>Limpieza incluida</strong><span>bombeo, lavado y desinfección</span></li>
+          <li><strong>Papel y gel</strong><span>repuestos en cada servicio</span></li>
+        </ul>
+      </div>
+
+      <figure class="hero-art">
+        <button class="cabin-btn" type="button" id="cabinBtn" aria-pressed="false" aria-label="Cambiar el indicador de la puerta entre libre y ocupado">
+          <svg class="cabin" viewBox="0 0 240 380" role="img" aria-labelledby="cabinTitle">
+            <title id="cabinTitle">Baño portátil estándar</title>
+            <ellipse cx="120" cy="366" rx="104" ry="10" class="c-shadow"/>
+            <rect x="104" y="6" width="14" height="26" rx="2" class="c-vent"/>
+            <rect x="22" y="28" width="196" height="30" rx="10" class="c-roof"/>
+            <rect x="30" y="52" width="180" height="306" rx="6" class="c-shell"/>
+            <rect x="30" y="52" width="180" height="306" rx="6" class="c-ribs"/>
+            <rect x="56" y="72" width="128" height="276" rx="5" class="c-door"/>
+            <rect x="72" y="92" width="96" height="22" rx="11" class="c-indicator" id="cabinIndicator"/>
+            <text x="120" y="108" text-anchor="middle" class="c-indicator-text" id="cabinIndicatorText">LIBRE</text>
+            <rect x="156" y="196" width="10" height="44" rx="5" class="c-handle"/>
+            <rect x="64" y="132" width="20" height="5" rx="2.5" class="c-slot"/>
+            <rect x="64" y="142" width="20" height="5" rx="2.5" class="c-slot"/>
+            <rect x="64" y="152" width="20" height="5" rx="2.5" class="c-slot"/>
+            <rect x="56" y="100" width="6" height="24" rx="2" class="c-hinge"/>
+            <rect x="56" y="300" width="6" height="24" rx="2" class="c-hinge"/>
+            <rect x="30" y="346" width="180" height="12" rx="3" class="c-base"/>
+          </svg>
+        </button>
+        <figcaption class="spec-card">
+          <span class="spec-title">Unidad estándar · ficha</span>
+          <dl class="spec-list">
+            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
+            <div><dt>Tanque</dt><dd>265 L</dd></div>
+            <div><dt>Capacidad</dt><dd>≈ 200 usos</dd></div>
+            <div><dt>Peso vacía</dt><dd>75 kg</dd></div>
+          </dl>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Uses -->
+  <section class="band" aria-label="Para quién trabajamos">
+    <div class="wrap uses">
+      <div class="use">
+        <h3>Obras de construcción</h3>
+        <p>Renta semanal o mensual con limpieza programada. Cumple con la norma de sanitarios para trabajadores.</p>
+      </div>
+      <div class="use">
+        <h3>Eventos y bodas</h3>
+        <p>Unidades de lujo con lavamanos, espejo e iluminación. Entrega el día anterior y retiro al siguiente.</p>
+      </div>
+      <div class="use">
+        <h3>Ferias y conciertos</h3>
+        <p>Baterías de 10 a 100 unidades, unidades accesibles y personal de limpieza durante el evento.</p>
+      </div>
+      <div class="use">
+        <h3>Emergencias</h3>
+        <p>Instalación urgente por fallas de drenaje, inundaciones o remodelaciones de sanitarios.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Units -->
+  <section class="section" id="unidades">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Unidades</p>
+        <h2>Elige la cabina para tu proyecto</h2>
+        <p class="section-lede">Todas las unidades se entregan lavadas, desinfectadas y con papel higiénico y gel antibacterial.</p>
+      </div>
+
+      <div class="units">
+        <article class="unit">
+          <header>
+            <span class="unit-tag">Obra · evento</span>
+            <h3>Estándar</h3>
+          </header>
+          <p>La cabina de siempre: resistente, ventilada y fácil de mover. La más rentada para obras.</p>
+          <dl class="unit-specs">
+            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
+            <div><dt>Tanque</dt><dd>265 L</dd></div>
+            <div><dt>Incluye</dt><dd>Mingitorio, ventila, gancho</dd></div>
+          </dl>
+          <a class="unit-link" href="#cotizar" data-unit="Estándar">Cotizar estándar</a>
+        </article>
+
+        <article class="unit">
+          <header>
+            <span class="unit-tag">Evento · comida</span>
+            <h3>Con lavamanos</h3>
+          </header>
+          <p>Estándar con lavamanos de pedal y depósito de agua limpia. Ideal donde se sirve comida.</p>
+          <dl class="unit-specs">
+            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
+            <div><dt>Agua limpia</dt><dd>60 L · pedal</dd></div>
+            <div><dt>Incluye</dt><dd>Jabón, toallas de papel</dd></div>
+          </dl>
+          <a class="unit-link" href="#cotizar" data-unit="Con lavamanos">Cotizar con lavamanos</a>
+        </article>
+
+        <article class="unit">
+          <header>
+            <span class="unit-tag">Accesible</span>
+            <h3>Para silla de ruedas</h3>
+          </header>
+          <p>Piso a nivel del suelo, barras de apoyo y espacio de giro para silla de ruedas.</p>
+          <dl class="unit-specs">
+            <div><dt>Medidas</dt><dd>1.65 × 1.65 × 2.29 m</dd></div>
+            <div><dt>Giro interior</dt><dd>1.52 m</dd></div>
+            <div><dt>Incluye</dt><dd>Barras, rampa, puerta ancha</dd></div>
+          </dl>
+          <a class="unit-link" href="#cotizar" data-unit="Accesible">Cotizar accesible</a>
+        </article>
+
+        <article class="unit unit-featured">
+          <header>
+            <span class="unit-tag">Bodas · VIP</span>
+            <h3>Remolque de lujo</h3>
+          </header>
+          <p>Remolque con dos o más baños, agua corriente, espejo, luz interior y aire acondicionado.</p>
+          <dl class="unit-specs">
+            <div><dt>Cabinas</dt><dd>2 a 4 por remolque</dd></div>
+            <div><dt>Requiere</dt><dd>Toma eléctrica 127 V</dd></div>
+            <div><dt>Incluye</dt><dd>Lavabo, espejo, aromatizante</dd></div>
+          </dl>
+          <a class="unit-link" href="#cotizar" data-unit="Remolque de lujo">Cotizar remolque</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section section-alt" id="calculadora">
+    <div class="wrap calc-grid">
+      <div class="section-head">
+        <p class="eyebrow">Calculadora</p>
+        <h2>¿Cuántos baños necesito?</h2>
+        <p class="section-lede">Una estimación rápida con las proporciones que usamos en campo: un baño por cada 50 invitados en eventos de hasta 4 horas, y uno por cada 10 trabajadores en obra con limpieza semanal.</p>
+      </div>
+
+      <div class="calc" aria-live="polite">
+        <div class="calc-tabs" role="tablist" aria-label="Tipo de uso">
+          <button type="button" role="tab" id="tabEvento" aria-selected="true" aria-controls="panelEvento" data-mode="evento">Evento</button>
+          <button type="button" role="tab" id="tabObra" aria-selected="false" aria-controls="panelObra" data-mode="obra">Obra</button>
+        </div>
+
+        <div class="calc-body">
+          <div class="calc-inputs">
+            <div id="panelEvento" role="tabpanel" aria-labelledby="tabEvento" class="calc-panel">
+              <label class="field">
+                <span>Invitados</span>
+                <input type="number" id="calcPeople" min="1" max="20000" value="150" inputmode="numeric">
+              </label>
+              <label class="field">
+                <span>Duración (horas)</span>
+                <input type="number" id="calcHours" min="1" max="72" value="6" inputmode="numeric">
+              </label>
+              <label class="check">
+                <input type="checkbox" id="calcAlcohol" checked>
+                <span>Se servirán bebidas alcohólicas</span>
+              </label>
+              <label class="check">
+                <input type="checkbox" id="calcFood" checked>
+                <span>Se servirá comida</span>
+              </label>
+            </div>
+
+            <div id="panelObra" role="tabpanel" aria-labelledby="tabObra" class="calc-panel" hidden>
+              <label class="field">
+                <span>Trabajadores en sitio</span>
+                <input type="number" id="calcWorkers" min="1" max="5000" value="25" inputmode="numeric">
+              </label>
+              <label class="field">
+                <span>Jornada semanal (horas)</span>
+                <input type="number" id="calcWeekHours" min="1" max="84" value="48" inputmode="numeric">
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <span class="calc-label">Recomendamos</span>
+            <p class="calc-number"><span id="calcUnits">5</span> <span class="calc-unit" id="calcUnitsWord">baños</span></p>
+            <ul class="calc-breakdown" id="calcBreakdown"></ul>
+            <button type="button" class="btn btn-signal btn-block" id="calcUse">Usar en mi cotización</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="servicio">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Servicio</p>
+        <h2>Así funciona la renta</h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-n">1</span>
+          <h3>Cotiza</h3>
+          <p>Dinos dirección, fechas y número de personas. Te respondemos con precio cerrado el mismo día.</p>
+        </li>
+        <li class="step">
+          <span class="step-n">2</span>
+          <h3>Entregamos e instalamos</h3>
+          <p>Llevamos las unidades en camión, las nivelamos y las dejamos listas para usarse.</p>
+        </li>
+        <li class="step">
+          <span class="step-n">3</span>
+          <h3>Mantenemos</h3>
+          <p>Bombeo del tanque, lavado a presión, desinfección y reposición de papel y gel en cada visita.</p>
+        </li>
+        <li class="step">
+          <span class="step-n">4</span>
+          <h3>Retiramos</h3>
+          <p>Al terminar recogemos todo y dejamos el área limpia. Los residuos van a planta de tratamiento autorizada.</p>
+        </li>
+      </ol>
+
+      <div class="service-table-wrap">
+        <table class="service-table">
+          <caption>Frecuencia de limpieza según el uso</caption>
+          <thead>
+            <tr><th scope="col">Uso</th><th scope="col">Frecuencia</th><th scope="col">Renta mínima</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Obra (hasta 10 trabajadores por baño)</td><td>1 vez por semana</td><td>1 semana</td></tr>
+            <tr><td>Obra con más de 10 trabajadores por baño</td><td>2 a 3 veces por semana</td><td>1 semana</td></tr>
+            <tr><td>Evento de un día</td><td>Entrega lista para usar</td><td>1 día</td></tr>
+            <tr><td>Evento de varios días</td><td>Diaria</td><td>2 días</td></tr>
+            <tr><td>Concierto o feria grande</td><td>Personal en sitio</td><td>Según evento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="preguntas">
+    <div class="wrap faq-grid">
+      <div class="section-head">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que nos preguntan antes de rentar</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Con cuánta anticipación debo reservar?</summary>
+          <p>Para obras, 24 horas suelen bastar. Para bodas y eventos en temporada alta (fines de semana de mayo a diciembre) recomendamos reservar con 2 a 3 semanas.</p>
+        </details>
+        <details>
+          <summary>¿Qué necesito en el lugar para instalarlos?</summary>
+          <p>Un terreno plano y firme, y acceso para nuestro camión a menos de 20 metros de donde irán las unidades. Los remolques de lujo necesitan además una toma eléctrica de 127 V.</p>
+        </details>
+        <details>
+          <summary>¿Qué incluye cada limpieza?</summary>
+          <p>Bombeo completo del tanque, lavado a presión del interior, desinfección, carga de químico desodorizante y reposición de papel higiénico y gel antibacterial.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si el baño se llena antes de la siguiente limpieza?</summary>
+          <p>Llámanos y programamos un servicio extra, normalmente en menos de 24 horas. Si pasa seguido, te recomendaremos agregar una unidad o subir la frecuencia.</p>
+        </details>
+        <details>
+          <summary>¿Rentan por día, semana o mes?</summary>
+          <p>Sí, las tres. En obra la renta mensual es la más económica y ya incluye las limpiezas semanales.</p>
+        </details>
+        <details>
+          <summary>¿Emiten factura?</summary>
+          <p>Sí. Pídela al momento de confirmar tu renta y la enviamos por correo.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section" id="cotizar">
+    <div class="wrap quote-grid">
+      <div class="section-head">
+        <p class="eyebrow">Cotización</p>
+        <h2>Pide tu precio sin compromiso</h2>
+        <p class="section-lede">Llena el formulario y envíanos tu solicitud por WhatsApp. Respondemos de lunes a sábado de 7:00 a 19:00.</p>
+        <dl class="contact-list">
+          <div><dt>Teléfono y WhatsApp</dt><dd class="mono" id="contactPhone">+52 55 0000 0000</dd></div>
+          <div><dt>Correo</dt><dd class="mono">ventas@cabinalimpia.com</dd></div>
+          <div><dt>Cobertura</dt><dd>Ciudad y zona metropolitana. Fuera de zona con cargo por traslado.</dd></div>
+        </dl>
+      </div>
+
+      <form class="quote" id="quoteForm" novalidate>
+        <div class="form-row">
+          <label class="field">
+            <span>Nombre</span>
+            <input type="text" id="qName" name="nombre" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>Teléfono</span>
+            <input type="tel" id="qPhone" name="telefono" autocomplete="tel" required>
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="field">
+            <span>Tipo de uso</span>
+            <select id="qType" name="tipo">
+              <option>Evento</option>
+              <option>Boda</option>
+              <option>Obra de construcción</option>
+              <option>Emergencia</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Unidad</span>
+            <select id="qUnit" name="unidad">
+              <option>Estándar</option>
+              <option>Con lavamanos</option>
+              <option>Accesible</option>
+              <option>Remolque de lujo</option>
+              <option>No estoy seguro</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="field">
+            <span>Cantidad</span>
+            <input type="number" id="qQty" name="cantidad" min="1" value="1" inputmode="numeric" required>
+          </label>
+          <label class="field">
+            <span>Fecha de entrega</span>
+            <input type="date" id="qDate" name="fecha" required>
+          </label>
+        </div>
+        <label class="field">
+          <span>Dirección o colonia del servicio</span>
+          <input type="text" id="qPlace" name="lugar" autocomplete="street-address" required>
+        </label>
+        <label class="field">
+          <span>Detalles (opcional)</span>
+          <textarea id="qNotes" name="detalles" rows="3" placeholder="Duración, número de personas, acceso al lugar…"></textarea>
+        </label>
+        <p class="form-error" id="qError" role="alert" hidden></p>
+        <button type="submit" class="btn btn-signal btn-block">Preparar solicitud</button>
+
+        <div class="quote-ready" id="quoteReady" hidden>
+          <p class="quote-ready-title">Tu solicitud está lista para enviarse</p>
+          <pre class="quote-msg" id="quoteMsg"></pre>
+          <div class="quote-ready-actions">
+            <a class="btn btn-whatsapp" id="quoteWa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            <button type="button" class="btn btn-ghost" id="quoteCopy">Copiar texto</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a class="brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Cabina Limpia</span>
+      </a>
+      <p class="footer-note">Renta de baños portátiles para obras y eventos.</p>
+    </div>
+    <p class="footer-note">Lunes a sábado · 7:00 a 19:00<br>Servicio de emergencia 24 h</p>
+    <p class="footer-note">© <span id="year">2026</span> Cabina Limpia</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
