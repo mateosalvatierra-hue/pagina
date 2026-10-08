@@ -10,16 +10,37 @@
   var year = $("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Indicador LIBRE / OCUPADO de la cabina del encabezado
+  // Indicador LIBRE / OCUPADO de la cabina central de la portada
   var cabinBtn = $("cabinBtn");
+  var cabinInd = $("cabinIndicator");
   var cabinText = $("cabinIndicatorText");
-  if (cabinBtn && cabinText) {
+  if (cabinBtn && cabinInd && cabinText) {
     cabinBtn.addEventListener("click", function () {
       var busy = cabinBtn.getAttribute("aria-pressed") !== "true";
       cabinBtn.setAttribute("aria-pressed", String(busy));
       cabinText.textContent = busy ? "OCUPADO" : "LIBRE";
+      cabinInd.setAttribute("class", "ind " + (busy ? "ind-busy" : "ind-ok"));
     });
   }
+
+  // Menú en celular
+  var menuBtn = $("menuBtn");
+  var nav = $("nav");
+  function closeMenu() {
+    nav.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+  menuBtn.addEventListener("click", function () {
+    var open = !nav.classList.contains("open");
+    nav.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", closeMenu); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
+
+  // Botón flotante de WhatsApp
+  var fab = $("fabWa");
+  if (fab) fab.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola, quiero información sobre la renta de baños portátiles.");
 
   // ---------- Calculadora ----------
   var mode = "evento";
@@ -49,7 +70,7 @@
     var sinks = food ? Math.max(1, Math.ceil(units / 4)) : 0;
 
     var lines = [
-      accessible + " " + plural(accessible, "debe ser accesible", "deben ser accesibles") + " para silla de ruedas",
+      accessible + " " + plural(accessible, "debe ser accesible", "deben ser accesibles") + " para silla de ruedas (en amarillo)",
       sinks
         ? "Agrega " + sinks + " " + plural(sinks, "lavamanos", "lavamanos") + " porque habrá comida"
         : "Sin comida, el lavamanos es opcional",
@@ -57,7 +78,7 @@
         ? "Para más de 10 horas conviene una limpieza durante el evento"
         : "Entrega lista para usar; no requiere limpieza intermedia"
     ];
-    return { units: units, lines: lines };
+    return { units: units, accessible: accessible, lines: lines };
   }
 
   // Obra: 1 baño por cada 10 trabajadores con jornada de 40 h y limpieza semanal.
@@ -72,7 +93,7 @@
       "1 lavamanos por frente de trabajo",
       "Renta mensual: la opción más económica en obra"
     ];
-    return { units: units, lines: lines };
+    return { units: units, accessible: 0, lines: lines };
   }
 
   function renderCalc() {
@@ -80,6 +101,21 @@
     lastResult = { units: r.units, mode: mode };
     $("calcUnits").textContent = String(r.units);
     $("calcUnitsWord").textContent = plural(r.units, "baño", "baños");
+    var cabins = $("calcCabins");
+    cabins.textContent = "";
+    var MAX = 40;
+    var shown = Math.min(r.units, MAX);
+    for (var i = 0; i < shown; i++) {
+      var m = document.createElement("span");
+      m.className = i < r.accessible ? "mini mini-acc" : "mini";
+      cabins.appendChild(m);
+    }
+    if (r.units > MAX) {
+      var more = document.createElement("span");
+      more.className = "mini-more";
+      more.textContent = "+" + (r.units - MAX);
+      cabins.appendChild(more);
+    }
     var list = $("calcBreakdown");
     list.textContent = "";
     r.lines.forEach(function (t) {

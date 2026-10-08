@@ -7,174 +7,278 @@
 <meta name="description" content="Renta de baños portátiles para obras, eventos y bodas. Entrega, limpieza programada y retiro incluidos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,700..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,700..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="topbar">
+<header class="topbar" id="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="#inicio" aria-label="Cabina Limpia, inicio">
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">Cabina Limpia</span>
     </a>
-    <nav class="nav" aria-label="Principal">
+    <nav class="nav" id="nav" aria-label="Principal">
       <a href="#unidades">Unidades</a>
       <a href="#calculadora">Calculadora</a>
       <a href="#servicio">Servicio</a>
       <a href="#preguntas">Preguntas</a>
+      <a href="#cotizar" class="nav-cta">Cotizar</a>
     </nav>
-    <a class="btn btn-signal btn-sm" href="#cotizar">Cotizar</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="menu-bars" aria-hidden="true"></span>
+      <span class="menu-label">Menú</span>
+    </button>
   </div>
 </header>
 
 <main id="inicio">
 
-  <!-- Hero -->
+  <!-- Portada -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Renta de baños portátiles</p>
-        <h1>Baños portátiles limpios, a tiempo y sin complicaciones.</h1>
+        <p class="hero-chip"><span class="dot" aria-hidden="true"></span>Entregas en 24 h · Lunes a sábado</p>
+        <h1>Baños portátiles <span class="hl">limpios</span>, a tiempo y sin complicaciones.</h1>
         <p class="lede">Los llevamos, los mantenemos y los retiramos. Para obras, eventos, bodas y emergencias, con renta por día, semana o mes y limpieza incluida.</p>
         <div class="hero-actions">
-          <a class="btn btn-signal" href="#cotizar">Pide tu cotización</a>
-          <a class="btn btn-ghost" href="#calculadora">¿Cuántos necesito?</a>
+          <a class="btn btn-signal btn-lg" href="#cotizar">Pide tu cotización</a>
+          <a class="btn btn-outline-light btn-lg" href="#calculadora">¿Cuántos necesito?</a>
         </div>
-        <ul class="hero-facts" aria-label="Lo que incluye cada renta">
-          <li><strong>Entrega en 24&nbsp;h</strong><span>en la zona metropolitana</span></li>
-          <li><strong>Limpieza incluida</strong><span>bombeo, lavado y desinfección</span></li>
-          <li><strong>Papel y gel</strong><span>repuestos en cada servicio</span></li>
-        </ul>
       </div>
 
       <figure class="hero-art">
-        <button class="cabin-btn" type="button" id="cabinBtn" aria-pressed="false" aria-label="Cambiar el indicador de la puerta entre libre y ocupado">
-          <svg class="cabin" viewBox="0 0 240 380" role="img" aria-labelledby="cabinTitle">
-            <title id="cabinTitle">Baño portátil estándar</title>
-            <ellipse cx="120" cy="366" rx="104" ry="10" class="c-shadow"/>
-            <rect x="104" y="6" width="14" height="26" rx="2" class="c-vent"/>
-            <rect x="22" y="28" width="196" height="30" rx="10" class="c-roof"/>
-            <rect x="30" y="52" width="180" height="306" rx="6" class="c-shell"/>
-            <rect x="30" y="52" width="180" height="306" rx="6" class="c-ribs"/>
-            <rect x="56" y="72" width="128" height="276" rx="5" class="c-door"/>
-            <rect x="72" y="92" width="96" height="22" rx="11" class="c-indicator" id="cabinIndicator"/>
-            <text x="120" y="108" text-anchor="middle" class="c-indicator-text" id="cabinIndicatorText">LIBRE</text>
-            <rect x="156" y="196" width="10" height="44" rx="5" class="c-handle"/>
-            <rect x="64" y="132" width="20" height="5" rx="2.5" class="c-slot"/>
-            <rect x="64" y="142" width="20" height="5" rx="2.5" class="c-slot"/>
-            <rect x="64" y="152" width="20" height="5" rx="2.5" class="c-slot"/>
-            <rect x="56" y="100" width="6" height="24" rx="2" class="c-hinge"/>
-            <rect x="56" y="300" width="6" height="24" rx="2" class="c-hinge"/>
-            <rect x="30" y="346" width="180" height="12" rx="3" class="c-base"/>
-          </svg>
+        <button class="scene-btn" type="button" id="cabinBtn" aria-pressed="true" aria-label="Cambiar el indicador de la cabina del centro entre libre y ocupado">
+          <svg class="scene" viewBox="0 0 660 400" role="img" aria-labelledby="sceneTitle">
+<title id="sceneTitle">Batería de tres baños portátiles instalados</title>
+<rect x="0" y="372" width="660" height="4" rx="2" class="ground"/>
+<g transform="translate(8 36) scale(0.88)" class="hc">
+  <rect x="104" y="6" width="14" height="26" rx="2" class="hc-vent"/>
+  <rect x="22" y="28" width="196" height="30" rx="10" class="hc-roof"/>
+  <rect x="30" y="52" width="180" height="306" rx="6" class="hc-shell"/>
+  <rect x="56" y="72" width="128" height="276" rx="5" class="hc-door"/>
+  <rect x="72" y="92" width="96" height="22" rx="11" class="ind ind-ok"/>
+  <text x="120" y="108" text-anchor="middle" class="ind-text">LIBRE</text>
+  <rect x="156" y="196" width="10" height="44" rx="5" class="hc-handle"/>
+  <rect x="64" y="132" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="64" y="142" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="64" y="152" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="30" y="346" width="180" height="12" rx="3" class="hc-base"/>
+</g>
+<g transform="translate(222 36) scale(0.88)" class="hc">
+  <rect x="104" y="6" width="14" height="26" rx="2" class="hc-vent"/>
+  <rect x="22" y="28" width="196" height="30" rx="10" class="hc-roof"/>
+  <rect x="30" y="52" width="180" height="306" rx="6" class="hc-shell"/>
+  <rect x="56" y="72" width="128" height="276" rx="5" class="hc-door"/>
+  <rect x="72" y="92" width="96" height="22" rx="11" class="ind ind-busy" id="cabinIndicator"/>
+  <text x="120" y="108" text-anchor="middle" class="ind-text" id="cabinIndicatorText">OCUPADO</text>
+  <rect x="156" y="196" width="10" height="44" rx="5" class="hc-handle"/>
+  <rect x="64" y="132" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="64" y="142" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="64" y="152" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="30" y="346" width="180" height="12" rx="3" class="hc-base"/>
+</g>
+<g transform="translate(436 36) scale(0.88)" class="hc">
+  <rect x="104" y="6" width="14" height="26" rx="2" class="hc-vent"/>
+  <rect x="22" y="28" width="196" height="30" rx="10" class="hc-roof"/>
+  <rect x="30" y="52" width="180" height="306" rx="6" class="hc-shell"/>
+  <rect x="56" y="72" width="128" height="276" rx="5" class="hc-door"/>
+  <rect x="72" y="92" width="96" height="22" rx="11" class="ind ind-ok"/>
+  <text x="120" y="108" text-anchor="middle" class="ind-text">LIBRE</text>
+  <rect x="156" y="196" width="10" height="44" rx="5" class="hc-handle"/>
+  <rect x="64" y="132" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="64" y="142" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="64" y="152" width="20" height="5" rx="2.5" class="hc-slot"/>
+  <rect x="30" y="346" width="180" height="12" rx="3" class="hc-base"/>
+</g>
+</svg>
         </button>
-        <figcaption class="spec-card">
-          <span class="spec-title">Unidad estándar · ficha</span>
-          <dl class="spec-list">
-            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
-            <div><dt>Tanque</dt><dd>265 L</dd></div>
-            <div><dt>Capacidad</dt><dd>≈ 200 usos</dd></div>
-            <div><dt>Peso vacía</dt><dd>75 kg</dd></div>
-          </dl>
-        </figcaption>
       </figure>
     </div>
-  </section>
 
-  <!-- Uses -->
-  <section class="band" aria-label="Para quién trabajamos">
-    <div class="wrap uses">
-      <div class="use">
-        <h3>Obras de construcción</h3>
-        <p>Renta semanal o mensual con limpieza programada. Cumple con la norma de sanitarios para trabajadores.</p>
-      </div>
-      <div class="use">
-        <h3>Eventos y bodas</h3>
-        <p>Unidades de lujo con lavamanos, espejo e iluminación. Entrega el día anterior y retiro al siguiente.</p>
-      </div>
-      <div class="use">
-        <h3>Ferias y conciertos</h3>
-        <p>Baterías de 10 a 100 unidades, unidades accesibles y personal de limpieza durante el evento.</p>
-      </div>
-      <div class="use">
-        <h3>Emergencias</h3>
-        <p>Instalación urgente por fallas de drenaje, inundaciones o remodelaciones de sanitarios.</p>
+    <div class="wrap">
+      <ul class="hero-facts" aria-label="Lo que incluye cada renta">
+        <li><strong>Entrega e instalación</strong><span>nivelados y listos para usarse</span></li>
+        <li><strong>Limpieza incluida</strong><span>bombeo, lavado a presión y desinfección</span></li>
+        <li><strong>Papel y gel</strong><span>repuestos en cada servicio</span></li>
+        <li><strong>Retiro sin costo extra</strong><span>dejamos el área limpia</span></li>
+      </ul>
+    </div>
+  </section>
+  <div class="tape" aria-hidden="true"></div>
+
+  <!-- Para quién -->
+  <section class="section section-uses" aria-labelledby="usesTitle">
+    <div class="wrap">
+      <h2 class="visually-hidden" id="usesTitle">Para quién trabajamos</h2>
+      <div class="uses">
+        <div class="use">
+          <svg class="use-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M5 18a7 7 0 0 1 14 0M10 11V6.5a2 2 0 0 1 4 0V11"/></svg>
+          <h3>Obras de construcción</h3>
+          <p>Renta semanal o mensual con limpieza programada. Cumple con la norma de sanitarios para trabajadores.</p>
+        </div>
+        <div class="use">
+          <svg class="use-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 5l2-2 2 2"/></svg>
+          <h3>Eventos y bodas</h3>
+          <p>Unidades de lujo con lavamanos, espejo e iluminación. Entrega el día anterior y retiro al siguiente.</p>
+        </div>
+        <div class="use">
+          <svg class="use-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+          <h3>Ferias y conciertos</h3>
+          <p>Baterías de 10 a 100 unidades, unidades accesibles y personal de limpieza durante el evento.</p>
+        </div>
+        <div class="use">
+          <svg class="use-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4.5M12 17.2v.1"/></svg>
+          <h3>Emergencias</h3>
+          <p>Instalación urgente por fallas de drenaje, inundaciones o remodelaciones de sanitarios.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Units -->
-  <section class="section" id="unidades">
+  <!-- Unidades -->
+  <section class="section section-alt" id="unidades">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Unidades</p>
         <h2>Elige la cabina para tu proyecto</h2>
-        <p class="section-lede">Todas las unidades se entregan lavadas, desinfectadas y con papel higiénico y gel antibacterial.</p>
+        <p class="section-lede">Todas se entregan lavadas, desinfectadas y con papel higiénico y gel antibacterial.</p>
       </div>
 
       <div class="units">
         <article class="unit">
-          <header>
+          <div class="unit-art"><svg class="unit-ill" viewBox="0 0 200 120" aria-hidden="true">
+<rect x="20" y="112" width="160" height="3" rx="1.5" class="ill-ground"/>
+<g transform="translate(66 6) scale(0.28)" class="uc">
+  <rect x="104" y="6" width="14" height="26" rx="2" class="uc-vent"/>
+  <rect x="22" y="28" width="196" height="30" rx="10" class="uc-roof"/>
+  <rect x="30" y="52" width="180" height="306" rx="6" class="uc-shell"/>
+  <rect x="56" y="72" width="128" height="276" rx="5" class="uc-door"/>
+  <rect x="72" y="92" width="96" height="22" rx="11" class="ind ind-ok"/>
+  <text x="120" y="108" text-anchor="middle" class="ind-text"></text>
+  <rect x="156" y="196" width="10" height="44" rx="5" class="uc-handle"/>
+  <rect x="64" y="132" width="20" height="5" rx="2.5" class="uc-slot"/>
+  <rect x="64" y="142" width="20" height="5" rx="2.5" class="uc-slot"/>
+  <rect x="64" y="152" width="20" height="5" rx="2.5" class="uc-slot"/>
+  <rect x="30" y="346" width="180" height="12" rx="3" class="uc-base"/>
+</g>
+</svg></div>
+          <div class="unit-body">
             <span class="unit-tag">Obra · evento</span>
             <h3>Estándar</h3>
-          </header>
-          <p>La cabina de siempre: resistente, ventilada y fácil de mover. La más rentada para obras.</p>
-          <dl class="unit-specs">
-            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
-            <div><dt>Tanque</dt><dd>265 L</dd></div>
-            <div><dt>Incluye</dt><dd>Mingitorio, ventila, gancho</dd></div>
-          </dl>
-          <a class="unit-link" href="#cotizar" data-unit="Estándar">Cotizar estándar</a>
+            <p>La cabina de siempre: resistente, ventilada y fácil de mover. La más rentada para obras.</p>
+            <dl class="unit-specs">
+              <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
+              <div><dt>Tanque</dt><dd>265 L</dd></div>
+              <div><dt>Incluye</dt><dd>Mingitorio, ventila, gancho</dd></div>
+            </dl>
+            <a class="unit-link" href="#cotizar" data-unit="Estándar">Cotizar estándar</a>
+          </div>
         </article>
 
         <article class="unit">
-          <header>
+          <div class="unit-art"><svg class="unit-ill" viewBox="0 0 200 120" aria-hidden="true">
+<rect x="20" y="112" width="160" height="3" rx="1.5" class="ill-ground"/>
+<g transform="translate(44 6) scale(0.28)" class="uc">
+  <rect x="104" y="6" width="14" height="26" rx="2" class="uc-vent"/>
+  <rect x="22" y="28" width="196" height="30" rx="10" class="uc-roof"/>
+  <rect x="30" y="52" width="180" height="306" rx="6" class="uc-shell"/>
+  <rect x="56" y="72" width="128" height="276" rx="5" class="uc-door"/>
+  <rect x="72" y="92" width="96" height="22" rx="11" class="ind ind-ok"/>
+  <text x="120" y="108" text-anchor="middle" class="ind-text"></text>
+  <rect x="156" y="196" width="10" height="44" rx="5" class="uc-handle"/>
+  <rect x="64" y="132" width="20" height="5" rx="2.5" class="uc-slot"/>
+  <rect x="64" y="142" width="20" height="5" rx="2.5" class="uc-slot"/>
+  <rect x="64" y="152" width="20" height="5" rx="2.5" class="uc-slot"/>
+  <rect x="30" y="346" width="180" height="12" rx="3" class="uc-base"/>
+</g>
+<g class="uc">
+  <rect x="128" y="58" width="34" height="8" rx="3" class="uc-roof"/>
+  <rect x="140" y="66" width="10" height="46" rx="2" class="uc-shell"/>
+  <rect x="143" y="44" width="4" height="14" rx="2" class="uc-door"/>
+  <rect x="143" y="44" width="12" height="4" rx="2" class="uc-door"/>
+  <rect x="134" y="106" width="22" height="6" rx="2" class="uc-base"/>
+</g>
+</svg></div>
+          <div class="unit-body">
             <span class="unit-tag">Evento · comida</span>
             <h3>Con lavamanos</h3>
-          </header>
-          <p>Estándar con lavamanos de pedal y depósito de agua limpia. Ideal donde se sirve comida.</p>
-          <dl class="unit-specs">
-            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
-            <div><dt>Agua limpia</dt><dd>60 L · pedal</dd></div>
-            <div><dt>Incluye</dt><dd>Jabón, toallas de papel</dd></div>
-          </dl>
-          <a class="unit-link" href="#cotizar" data-unit="Con lavamanos">Cotizar con lavamanos</a>
+            <p>Estándar con lavamanos de pedal y depósito de agua limpia. Ideal donde se sirve comida.</p>
+            <dl class="unit-specs">
+              <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
+              <div><dt>Agua limpia</dt><dd>60 L · pedal</dd></div>
+              <div><dt>Incluye</dt><dd>Jabón, toallas de papel</dd></div>
+            </dl>
+            <a class="unit-link" href="#cotizar" data-unit="Con lavamanos">Cotizar con lavamanos</a>
+          </div>
         </article>
 
         <article class="unit">
-          <header>
+          <div class="unit-art"><svg class="unit-ill" viewBox="0 0 200 120" aria-hidden="true">
+<rect x="20" y="112" width="160" height="3" rx="1.5" class="ill-ground"/>
+<g class="uc">
+  <rect x="96" y="2" width="5" height="9" rx="1" class="uc-vent"/>
+  <rect x="50" y="9" width="100" height="10" rx="4" class="uc-roof"/>
+  <rect x="54" y="17" width="92" height="95" rx="3" class="uc-shell"/>
+  <rect x="64" y="24" width="52" height="88" rx="2" class="uc-door"/>
+  <rect x="108" y="62" width="4" height="14" rx="2" class="uc-handle"/>
+  <rect x="122" y="30" width="18" height="18" rx="3" class="ill-badge"/>
+  <circle cx="129" cy="34" r="1.8" class="ill-badge-mark"/>
+  <path d="M128.5 36.5v5h5l2 4 M131 41.5a4 4 0 1 1-5.5-2" class="ill-badge-stroke"/>
+  <path d="M116 112 L150 112 L116 104 Z" class="uc-base"/>
+</g>
+</svg></div>
+          <div class="unit-body">
             <span class="unit-tag">Accesible</span>
             <h3>Para silla de ruedas</h3>
-          </header>
-          <p>Piso a nivel del suelo, barras de apoyo y espacio de giro para silla de ruedas.</p>
-          <dl class="unit-specs">
-            <div><dt>Medidas</dt><dd>1.65 × 1.65 × 2.29 m</dd></div>
-            <div><dt>Giro interior</dt><dd>1.52 m</dd></div>
-            <div><dt>Incluye</dt><dd>Barras, rampa, puerta ancha</dd></div>
-          </dl>
-          <a class="unit-link" href="#cotizar" data-unit="Accesible">Cotizar accesible</a>
+            <p>Piso a nivel del suelo, barras de apoyo y espacio de giro para silla de ruedas.</p>
+            <dl class="unit-specs">
+              <div><dt>Medidas</dt><dd>1.65 × 1.65 × 2.29 m</dd></div>
+              <div><dt>Giro interior</dt><dd>1.52 m</dd></div>
+              <div><dt>Incluye</dt><dd>Barras, rampa, puerta ancha</dd></div>
+            </dl>
+            <a class="unit-link" href="#cotizar" data-unit="Accesible">Cotizar accesible</a>
+          </div>
         </article>
 
         <article class="unit unit-featured">
-          <header>
-            <span class="unit-tag">Bodas · VIP</span>
+          <div class="unit-art"><svg class="unit-ill" viewBox="0 0 200 120" aria-hidden="true">
+<rect x="10" y="112" width="180" height="3" rx="1.5" class="ill-ground"/>
+<g class="uc">
+  <rect x="22" y="26" width="160" height="9" rx="4" class="uc-roof"/>
+  <rect x="26" y="33" width="152" height="64" rx="4" class="uc-shell"/>
+  <rect x="38" y="42" width="28" height="55" rx="2" class="uc-door"/>
+  <rect x="88" y="42" width="28" height="55" rx="2" class="uc-door"/>
+  <rect x="138" y="42" width="28" height="55" rx="2" class="uc-door"/>
+  <rect x="42" y="47" width="20" height="5" rx="2.5" class="ind ind-ok"/>
+  <rect x="92" y="47" width="20" height="5" rx="2.5" class="ind ind-busy"/>
+  <rect x="142" y="47" width="20" height="5" rx="2.5" class="ind ind-ok"/>
+  <rect x="8" y="90" width="20" height="3" rx="1.5" class="uc-base"/>
+  <rect x="26" y="95" width="152" height="5" rx="2" class="uc-base"/>
+  <circle cx="74" cy="104" r="8" class="ill-wheel"/>
+  <circle cx="96" cy="104" r="8" class="ill-wheel"/>
+  <rect x="122" y="100" width="18" height="4" rx="1" class="uc-base"/>
+  <rect x="126" y="106" width="18" height="4" rx="1" class="uc-base"/>
+</g>
+</svg></div>
+          <div class="unit-body">
+            <span class="unit-tag unit-tag-vip">Bodas · VIP</span>
             <h3>Remolque de lujo</h3>
-          </header>
-          <p>Remolque con dos o más baños, agua corriente, espejo, luz interior y aire acondicionado.</p>
-          <dl class="unit-specs">
-            <div><dt>Cabinas</dt><dd>2 a 4 por remolque</dd></div>
-            <div><dt>Requiere</dt><dd>Toma eléctrica 127 V</dd></div>
-            <div><dt>Incluye</dt><dd>Lavabo, espejo, aromatizante</dd></div>
-          </dl>
-          <a class="unit-link" href="#cotizar" data-unit="Remolque de lujo">Cotizar remolque</a>
+            <p>Remolque con varios baños, agua corriente, espejo, luz interior y aire acondicionado.</p>
+            <dl class="unit-specs">
+              <div><dt>Cabinas</dt><dd>2 a 4 por remolque</dd></div>
+              <div><dt>Requiere</dt><dd>Toma eléctrica 127 V</dd></div>
+              <div><dt>Incluye</dt><dd>Lavabo, espejo, aromatizante</dd></div>
+            </dl>
+            <a class="unit-link" href="#cotizar" data-unit="Remolque de lujo">Cotizar remolque</a>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Calculator -->
-  <section class="section section-alt" id="calculadora">
+  <!-- Calculadora -->
+  <section class="section" id="calculadora">
     <div class="wrap calc-grid">
       <div class="section-head">
         <p class="eyebrow">Calculadora</p>
@@ -185,7 +289,7 @@
       <div class="calc" aria-live="polite">
         <div class="calc-tabs" role="tablist" aria-label="Tipo de uso">
           <button type="button" role="tab" id="tabEvento" aria-selected="true" aria-controls="panelEvento" data-mode="evento">Evento</button>
-          <button type="button" role="tab" id="tabObra" aria-selected="false" aria-controls="panelObra" data-mode="obra">Obra</button>
+          <button type="button" role="tab" id="tabObra" aria-selected="false" aria-controls="panelObra" data-mode="obra" tabindex="-1">Obra</button>
         </div>
 
         <div class="calc-body">
@@ -224,6 +328,7 @@
           <div class="calc-result">
             <span class="calc-label">Recomendamos</span>
             <p class="calc-number"><span id="calcUnits">5</span> <span class="calc-unit" id="calcUnitsWord">baños</span></p>
+            <div class="calc-cabins" id="calcCabins" aria-hidden="true"></div>
             <ul class="calc-breakdown" id="calcBreakdown"></ul>
             <button type="button" class="btn btn-signal btn-block" id="calcUse">Usar en mi cotización</button>
           </div>
@@ -232,8 +337,8 @@
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="section" id="servicio">
+  <!-- Servicio -->
+  <section class="section section-dark" id="servicio">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Servicio</p>
@@ -242,24 +347,24 @@
 
       <ol class="steps">
         <li class="step">
-          <span class="step-n">1</span>
+          <span class="step-n">01</span>
           <h3>Cotiza</h3>
           <p>Dinos dirección, fechas y número de personas. Te respondemos con precio cerrado el mismo día.</p>
         </li>
         <li class="step">
-          <span class="step-n">2</span>
+          <span class="step-n">02</span>
           <h3>Entregamos e instalamos</h3>
           <p>Llevamos las unidades en camión, las nivelamos y las dejamos listas para usarse.</p>
         </li>
         <li class="step">
-          <span class="step-n">3</span>
+          <span class="step-n">03</span>
           <h3>Mantenemos</h3>
           <p>Bombeo del tanque, lavado a presión, desinfección y reposición de papel y gel en cada visita.</p>
         </li>
         <li class="step">
-          <span class="step-n">4</span>
+          <span class="step-n">04</span>
           <h3>Retiramos</h3>
-          <p>Al terminar recogemos todo y dejamos el área limpia. Los residuos van a planta de tratamiento autorizada.</p>
+          <p>Al terminar recogemos todo y dejamos el área limpia. Los residuos van a una planta de tratamiento autorizada.</p>
         </li>
       </ol>
 
@@ -281,8 +386,19 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section-alt" id="preguntas">
+  <!-- Llamado urgente -->
+  <section class="urgent">
+    <div class="wrap urgent-inner">
+      <div>
+        <h2>¿Los necesitas para mañana?</h2>
+        <p>Escríbenos antes de las 14:00 y los entregamos al día siguiente en la zona metropolitana.</p>
+      </div>
+      <a class="btn btn-dark btn-lg" href="#cotizar">Cotizar ahora</a>
+    </div>
+  </section>
+
+  <!-- Preguntas -->
+  <section class="section" id="preguntas">
     <div class="wrap faq-grid">
       <div class="section-head">
         <p class="eyebrow">Preguntas frecuentes</p>
@@ -317,8 +433,8 @@
     </div>
   </section>
 
-  <!-- Quote -->
-  <section class="section" id="cotizar">
+  <!-- Cotización -->
+  <section class="section section-alt" id="cotizar">
     <div class="wrap quote-grid">
       <div class="section-head">
         <p class="eyebrow">Cotización</p>
@@ -383,7 +499,7 @@
           <textarea id="qNotes" name="detalles" rows="3" placeholder="Duración, número de personas, acceso al lugar…"></textarea>
         </label>
         <p class="form-error" id="qError" role="alert" hidden></p>
-        <button type="submit" class="btn btn-signal btn-block">Preparar solicitud</button>
+        <button type="submit" class="btn btn-signal btn-block btn-lg">Preparar solicitud</button>
 
         <div class="quote-ready" id="quoteReady" hidden>
           <p class="quote-ready-title">Tu solicitud está lista para enviarse</p>
@@ -412,6 +528,10 @@
     <p class="footer-note">© <span id="year">2026</span> Cabina Limpia</p>
   </div>
 </footer>
+
+<a class="fab" id="fabWa" href="https://wa.me/525500000000" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg class="fab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.2 9.3c.3 2.3 2.3 4.6 5.4 5.4l1-1.3-1.8-.9-.8.8c-1-.4-2-1.4-2.4-2.4l.8-.8-.9-1.8z" class="fab-fill"/></svg><span>WhatsApp</span>
+</a>
 
 <script src="script.js"></script>
 </body>
