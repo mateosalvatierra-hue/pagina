@@ -25,6 +25,7 @@
       <a href="#preguntas">Preguntas</a>
       <a href="#cotizar" class="nav-cta">Cotizar</a>
     </nav>
+    <a class="topbar-cta" href="#cotizar">Cotizar</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">
       <span class="menu-bars" aria-hidden="true"></span>
       <span class="menu-label">Menú</span>
@@ -93,6 +94,15 @@
 </g>
 </svg>
         </button>
+        <figcaption class="spec-card">
+          <span class="spec-title">Unidad estándar · ficha</span>
+          <dl class="spec-list">
+            <div><dt>Medidas</dt><dd>1.12 × 1.12 × 2.29 m</dd></div>
+            <div><dt>Tanque</dt><dd>265 L</dd></div>
+            <div><dt>Capacidad</dt><dd>≈ 200 usos</dd></div>
+            <div><dt>Peso vacía</dt><dd>75 kg</dd></div>
+          </dl>
+        </figcaption>
       </figure>
     </div>
 
@@ -295,14 +305,22 @@
         <div class="calc-body">
           <div class="calc-inputs">
             <div id="panelEvento" role="tabpanel" aria-labelledby="tabEvento" class="calc-panel">
-              <label class="field">
-                <span>Invitados</span>
-                <input type="number" id="calcPeople" min="1" max="20000" value="150" inputmode="numeric">
-              </label>
-              <label class="field">
-                <span>Duración (horas)</span>
-                <input type="number" id="calcHours" min="1" max="72" value="6" inputmode="numeric">
-              </label>
+              <div class="field">
+                <label for="calcPeople">Invitados</label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" data-target="calcPeople" data-step="-10" aria-label="Restar 10 invitados">−</button>
+                  <input type="number" id="calcPeople" min="1" max="20000" value="150" inputmode="numeric">
+                  <button type="button" class="stepper-btn" data-target="calcPeople" data-step="10" aria-label="Sumar 10 invitados">+</button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="calcHours">Duración (horas)</label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" data-target="calcHours" data-step="-1" aria-label="Restar una hora">−</button>
+                  <input type="number" id="calcHours" min="1" max="72" value="6" inputmode="numeric">
+                  <button type="button" class="stepper-btn" data-target="calcHours" data-step="1" aria-label="Sumar una hora">+</button>
+                </div>
+              </div>
               <label class="check">
                 <input type="checkbox" id="calcAlcohol" checked>
                 <span>Se servirán bebidas alcohólicas</span>
@@ -314,14 +332,22 @@
             </div>
 
             <div id="panelObra" role="tabpanel" aria-labelledby="tabObra" class="calc-panel" hidden>
-              <label class="field">
-                <span>Trabajadores en sitio</span>
-                <input type="number" id="calcWorkers" min="1" max="5000" value="25" inputmode="numeric">
-              </label>
-              <label class="field">
-                <span>Jornada semanal (horas)</span>
-                <input type="number" id="calcWeekHours" min="1" max="84" value="48" inputmode="numeric">
-              </label>
+              <div class="field">
+                <label for="calcWorkers">Trabajadores en sitio</label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" data-target="calcWorkers" data-step="-5" aria-label="Restar 5 trabajadores">−</button>
+                  <input type="number" id="calcWorkers" min="1" max="5000" value="25" inputmode="numeric">
+                  <button type="button" class="stepper-btn" data-target="calcWorkers" data-step="5" aria-label="Sumar 5 trabajadores">+</button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="calcWeekHours">Jornada semanal (horas)</label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" data-target="calcWeekHours" data-step="-1" aria-label="Restar una hora">−</button>
+                  <input type="number" id="calcWeekHours" min="1" max="84" value="48" inputmode="numeric">
+                  <button type="button" class="stepper-btn" data-target="calcWeekHours" data-step="1" aria-label="Sumar una hora">+</button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -375,11 +401,11 @@
             <tr><th scope="col">Uso</th><th scope="col">Frecuencia</th><th scope="col">Renta mínima</th></tr>
           </thead>
           <tbody>
-            <tr><td>Obra (hasta 10 trabajadores por baño)</td><td>1 vez por semana</td><td>1 semana</td></tr>
-            <tr><td>Obra con más de 10 trabajadores por baño</td><td>2 a 3 veces por semana</td><td>1 semana</td></tr>
-            <tr><td>Evento de un día</td><td>Entrega lista para usar</td><td>1 día</td></tr>
-            <tr><td>Evento de varios días</td><td>Diaria</td><td>2 días</td></tr>
-            <tr><td>Concierto o feria grande</td><td>Personal en sitio</td><td>Según evento</td></tr>
+            <tr><td data-label="Uso">Obra (hasta 10 trabajadores por baño)</td><td data-label="Frecuencia">1 vez por semana</td><td data-label="Renta mínima">1 semana</td></tr>
+            <tr><td data-label="Uso">Obra con más de 10 trabajadores por baño</td><td data-label="Frecuencia">2 a 3 veces por semana</td><td data-label="Renta mínima">1 semana</td></tr>
+            <tr><td data-label="Uso">Evento de un día</td><td data-label="Frecuencia">Entrega lista para usar</td><td data-label="Renta mínima">1 día</td></tr>
+            <tr><td data-label="Uso">Evento de varios días</td><td data-label="Frecuencia">Diaria</td><td data-label="Renta mínima">2 días</td></tr>
+            <tr><td data-label="Uso">Concierto o feria grande</td><td data-label="Frecuencia">Personal en sitio</td><td data-label="Renta mínima">Según evento</td></tr>
           </tbody>
         </table>
       </div>
@@ -441,8 +467,8 @@
         <h2>Pide tu precio sin compromiso</h2>
         <p class="section-lede">Llena el formulario y envíanos tu solicitud por WhatsApp. Respondemos de lunes a sábado de 7:00 a 19:00.</p>
         <dl class="contact-list">
-          <div><dt>Teléfono y WhatsApp</dt><dd class="mono" id="contactPhone">+52 55 0000 0000</dd></div>
-          <div><dt>Correo</dt><dd class="mono">ventas@cabinalimpia.com</dd></div>
+          <div><dt>Teléfono y WhatsApp</dt><dd class="mono"><a href="tel:+525500000000" id="contactPhone">+52 55 0000 0000</a></dd></div>
+          <div><dt>Correo</dt><dd class="mono"><a href="mailto:ventas@cabinalimpia.com">ventas@cabinalimpia.com</a></dd></div>
           <div><dt>Cobertura</dt><dd>Ciudad y zona metropolitana. Fuera de zona con cargo por traslado.</dd></div>
         </dl>
       </div>
@@ -481,10 +507,14 @@
           </label>
         </div>
         <div class="form-row">
-          <label class="field">
-            <span>Cantidad</span>
-            <input type="number" id="qQty" name="cantidad" min="1" value="1" inputmode="numeric" required>
-          </label>
+          <div class="field">
+            <label for="qQty">Cantidad</label>
+            <div class="stepper">
+              <button type="button" class="stepper-btn" data-target="qQty" data-step="-1" aria-label="Restar una unidad">−</button>
+              <input type="number" id="qQty" name="cantidad" min="1" value="1" inputmode="numeric" required>
+              <button type="button" class="stepper-btn" data-target="qQty" data-step="1" aria-label="Sumar una unidad">+</button>
+            </div>
+          </div>
           <label class="field">
             <span>Fecha de entrega</span>
             <input type="date" id="qDate" name="fecha" required>

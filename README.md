@@ -22,7 +22,7 @@ Abre `index.html` en el navegador. No necesita servidor ni instalación.
 | --- | --- |
 | Nombre del negocio ("Cabina Limpia") | `index.html` (encabezado, pie y `<title>`) |
 | Número de WhatsApp | `script.js`, constante `WHATSAPP_NUMBER` (solo dígitos, con código de país) |
-| Teléfono y correo visibles | `index.html`, sección `#cotizar` |
+| Teléfono y correo visibles | `index.html`, sección `#cotizar` (texto y enlaces `tel:` / `mailto:`) |
 | Horario y zona de cobertura | `index.html`, sección `#cotizar` y pie de página |
 | Medidas y equipamiento de las unidades | `index.html`, sección `#unidades` |
 | Proporciones de la calculadora | `script.js`, funciones `calcEvento` y `calcObra` |

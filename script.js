@@ -42,6 +42,54 @@
   var fab = $("fabWa");
   if (fab) fab.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Hola, quiero información sobre la renta de baños portátiles.");
 
+  // Ocultar el botón flotante mientras el formulario está en pantalla
+  var quoteSection = $("cotizar");
+  if (fab && quoteSection && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      fab.classList.toggle("is-hidden", entries[0].isIntersecting);
+    }, { threshold: 0.15 }).observe(quoteSection);
+  }
+
+  // Resaltar en el menú la sección visible
+  var navLinks = {};
+  nav.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = a.getAttribute("href").slice(1);
+    if ($(id)) navLinks[id] = a;
+  });
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          navLinks[entry.target.id].removeAttribute("aria-current");
+          return;
+        }
+        Object.keys(navLinks).forEach(function (id) {
+          if (id === entry.target.id) navLinks[id].setAttribute("aria-current", "location");
+          else navLinks[id].removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(navLinks).forEach(function (id) { spy.observe($(id)); });
+  }
+
+  // Botones − / + de los campos numéricos
+  document.querySelectorAll(".stepper-btn").forEach(function (btn) {
+    var input = $(btn.getAttribute("data-target"));
+    var step = parseInt(btn.getAttribute("data-step"), 10);
+    btn.addEventListener("click", function () {
+      var min = parseInt(input.min, 10) || 1;
+      var max = parseInt(input.max, 10) || Infinity;
+      var current = parseInt(input.value, 10);
+      if (!isFinite(current)) current = min;
+      // Con pasos de 5 o 10, redondea al múltiplo más cercano en la dirección del botón
+      var next = Math.abs(step) > 1
+        ? (step > 0 ? Math.floor(current / step) * step + step : Math.ceil(current / -step) * -step + step)
+        : current + step;
+      input.value = String(Math.min(max, Math.max(min, next)));
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+  });
+
   // ---------- Calculadora ----------
   var mode = "evento";
   var tabs = document.querySelectorAll(".calc-tabs [role=tab]");
